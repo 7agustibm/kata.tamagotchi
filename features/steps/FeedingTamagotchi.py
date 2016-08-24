@@ -1,4 +1,7 @@
 from behave import *
+from nose.tools import eq_
+
+from tamagochi.tamagochi import Tamagotchi
 
 use_step_matcher("re")
 
@@ -8,7 +11,7 @@ def step_impl(context):
     """
     :type context: behave.runner.Context
     """
-    pass
+    context.tamagotchi = Tamagotchi()
 
 
 @when("I feed it")
@@ -16,7 +19,7 @@ def step_impl(context):
     """
     :type context: behave.runner.Context
     """
-    pass
+    context.tamaotchi.eat()
 
 
 @then("it's hungriness is decreased")
@@ -24,7 +27,7 @@ def step_impl(context):
     """
     :type context: behave.runner.Context
     """
-    pass
+    eq_(4, context.tamaotchi.hungriness())
 
 
 @step("it's fullness is increased")
@@ -32,4 +35,4 @@ def step_impl(context):
     """
     :type context: behave.runner.Context
     """
-    pass
+    eq_(6, context.tamaotchi.fullness())
