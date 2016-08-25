@@ -3,3 +3,4 @@ unittest2
 mock
 codecov
 nose
+six
